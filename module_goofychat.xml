@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_goofychat" default="compile.module.goofychat">
+  <dirname property="module.goofychat.basedir" file="${ant.file.module_goofychat}"/>
+  
+  <property name="module.jdk.home.goofychat" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.goofychat" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.goofychat" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.goofychat" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="goofychat.output.dir" value="${module.goofychat.basedir}/build/classes/production/GoofyChat"/>
+  <property name="goofychat.testoutput.dir" value="${module.goofychat.basedir}/build/classes/test/GoofyChat"/>
+  
+  <path id="goofychat.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="goofychat.module.production.classpath">
+    <path refid="${module.jdk.classpath.goofychat}"/>
+  </path>
+  
+  <path id="goofychat.runtime.production.module.classpath">
+    <pathelement location="${goofychat.output.dir}"/>
+  </path>
+  
+  <path id="goofychat.module.classpath">
+    <path refid="${module.jdk.classpath.goofychat}"/>
+    <pathelement location="${goofychat.output.dir}"/>
+  </path>
+  
+  <path id="goofychat.runtime.module.classpath">
+    <pathelement location="${goofychat.testoutput.dir}"/>
+    <pathelement location="${goofychat.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.goofychat">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.goofychat">
+    <patternset refid="excluded.from.module.goofychat"/>
+  </patternset>
+  
+  
+  <target name="compile.module.goofychat" depends="compile.module.goofychat.production,compile.module.goofychat.tests" description="Compile module GoofyChat"/>
+  
+  <target name="compile.module.goofychat.production" depends="register.custom.compilers" description="Compile module GoofyChat; production classes"/>
+  
+  <target name="compile.module.goofychat.tests" depends="register.custom.compilers,compile.module.goofychat.production" description="compile module GoofyChat; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.goofychat" description="cleanup module">
+    <delete dir="${goofychat.output.dir}"/>
+    <delete dir="${goofychat.testoutput.dir}"/>
+  </target>
+</project>

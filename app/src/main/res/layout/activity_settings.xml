@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.azhar.chat.goofy.goofychat.SettingsActivity">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/settings_image"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/avators"/>
+
+    <TextView
+        android:id="@+id/settings_display_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        android:text="@string/display_names"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/settings_image"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/settings_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="@string/hi_there_i_am_using_goofy_chat_app"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:layout_below="@+id/settings_display_name"
+        android:layout_alignStart="@+id/settings_image"/>
+
+    <Button
+        android:id="@+id/settings_image_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="82dp"
+        android:textStyle="bold"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/change_image"/>
+
+    <Button
+        android:id="@+id/settings_status_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_status"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="29dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>
